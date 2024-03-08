@@ -36,9 +36,12 @@ const getFilteredGroups = (groups: Group[], filter: Filter): Group[] => {
       if (!(group.avatar_color ?? "").match(pattern))
         return false;
     }
-    if (filter.friends && !group.friends?.length) {
-      return false;
-    }
+    if (filter.friends !== undefined)
+      if (filter.friends && !group.friends?.length) {
+        return false;
+      } else if (!filter.friends && group.friends?.length) {
+        return false;
+      }
     return true;
   });
 }

@@ -48,6 +48,13 @@ const FilterForm = memo(({ dispatch }: { dispatch: Dispatch<Action> }) => {
     updateColorFilter();
   };
 
+  const handleFriendsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFilter((prev) => ({
+      ...prev,
+      friends: e.target.value ? e.target.value === "with" : undefined,
+    }));
+  };
+
   return (
     <div className="filter">
       <div className="filter__field">
@@ -74,13 +81,16 @@ const FilterForm = memo(({ dispatch }: { dispatch: Dispatch<Action> }) => {
       </div>
 
       <div className="filter__field">
-        <label htmlFor="friends">Друзья</label>
-        <input
-          type="checkbox"
+        <label htmlFor="friends">Друзья в группе</label>
+        <select
           id="friends"
-          onChange={(e) => setFilter({ ...filter, friends: e.target.checked })}
-          className="filter__checkbox"
-        />
+          onChange={handleFriendsChange}
+          className="filter__input"
+        >
+          <option value="">Не выбрано</option>
+          <option value="with">Есть</option>
+          <option value="without">Без друзей</option>
+        </select>
       </div>
     </div>
   );
