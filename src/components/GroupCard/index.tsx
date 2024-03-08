@@ -17,20 +17,24 @@ const GroupCard = ({ group }: { group: Group }) => {
       <p className="group__member-count">
         Количество подписчиков: {group.members_count}
       </p>
-      <p
-        className="group__friends-count"
-        onClick={() => setShowFriends(!showFriends)}
-      >
-        Количество друзей: {group.friends?.length || 0}
-      </p>
-      {showFriends && (
-        <ol>
-          {group.friends?.map((friend) => (
-            <li key={friend.first_name + friend.last_name}>
-              {friend.first_name} {friend.last_name}
-            </li>
-          ))}
-        </ol>
+      {group.friends?.length && (
+        <>
+          <p
+            className="group__friends-count"
+            onClick={() => setShowFriends(!showFriends)}
+          >
+            Количество друзей: {group.friends?.length || 0}
+          </p>
+          {showFriends && (
+            <ol>
+              {group.friends?.map((friend) => (
+                <li key={friend.first_name + friend.last_name}>
+                  {friend.first_name} {friend.last_name}
+                </li>
+              ))}
+            </ol>
+          )}
+        </>
       )}
     </div>
   );
