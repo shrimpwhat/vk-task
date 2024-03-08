@@ -5,14 +5,15 @@
   margin-bottom: 30px;
   align-items: center;
 
-  label:not([for="friends"]) {
+  label {
     display: block;
   }
 
   &__input {
     font-size: 1.3rem;
-    width: 150px;
+    width: 200px;
     border: 1px solid black;
+    box-sizing: border-box;
 
     &#color[data-error="true"] {
       outline-color: red;

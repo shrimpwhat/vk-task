@@ -16,3 +16,9 @@ interface User {
   "first_name": string,
   "last_name": string
 }
+
+type Filter = Partial<{
+  closed: boolean;
+  color: string;
+  friends: boolean;
+}>
