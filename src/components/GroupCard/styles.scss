@@ -1,0 +1,28 @@
+.group {
+  border: 1px black solid;
+  width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+
+  &__name {
+    margin: 0;
+  }
+
+  &__avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    float: right;
+    border: 1px black solid;
+  }
+
+  &__friends-count {
+    text-decoration: underline;
+    cursor: pointer;
+    user-select: none;
+
+    &:active {
+      color: blue;
+    }
+  }
+}
